@@ -1,0 +1,125 @@
+.product-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .breadcrumb {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  .product-content {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .product-image-section {
+    flex: 1;
+  }
+  
+  .product-main-image {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+  }
+  
+  .thumbnail-gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .thumbnail-image {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+  }
+  
+  .product-info-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .product-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f00;
+  }
+  
+  .rating {
+    font-size: 16px;
+    color: #ffc107;
+  }
+  
+  .product-options {
+    margin-top: 10px;
+  }
+  
+  .material-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .material-button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    cursor: pointer;
+  }
+  
+  .material-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .add-to-cart-button {
+    padding: 15px;
+    background-color: #f8c32d;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .add-to-cart-button:hover {
+    background-color: #d7a723;
+  }
+  
+  .contact-info {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .contact-link {
+    display: block;
+    margin-top: 5px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .contact-link:hover {
+    text-decoration: underline;
+  }
+  .material-button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .material-button.active {
+    background-color: #d7a723;
+    color: white;
+    border-color: #d7a723;
+  }
+  
+  .material-button:hover {
+    background-color: #e0e0e0;
+  }
+  
