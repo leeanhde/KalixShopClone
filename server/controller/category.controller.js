@@ -17,7 +17,21 @@ async function getListProductByC_Id(req, res, next) {
   }
 }
 
+async function getListCatagory(req, res, next) {
+  try {
+    const list = await Category.find().populate("products");
+    const newList = list.map(c => ({
+      _id: c._id,
+      name: c.name,
+      products: c.products 
+    }));
+    res.status(200).json(newList);
+  } catch (error) {
+    next(error);
+  }
+}
+
 const categoryController = {
-  getListProductByC_Id,
+  getListProductByC_Id,getListCatagory
 };
 module.exports = categoryController;

@@ -1,0 +1,35 @@
+.cate-name{
+    display: flex;
+    justify-content: space-between;
+}
+.category-container{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.product-name {
+    text-decoration: none;
+    color: black;
+}
+/* Category.css */
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .category-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 products per row */
+    gap: 20px;
+  }
+  
+  .product-card {
+    padding: 10px;
+    text-align: start;
+  }
+  

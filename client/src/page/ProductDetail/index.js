@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Header from '../../components/Header';
-import './ProductDetail.css'; // Make sure to create this CSS file
-
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Header from "../../components/Header";
+import "./ProductDetail.css";
+import ReactPlayer from "react-player";
+import CategoryView from "../../components/CategoryView";
 export default function ProductDetail() {
   const { id } = useParams(); // Retrieve the product ID from the URL
   const [product, setProduct] = useState(null);
@@ -25,14 +26,13 @@ export default function ProductDetail() {
         if (data.images && data.images.length > 0) {
           setMainImage(data.images[0].url);
         } else {
-          setMainImage(''); // Fallback if no images are available
+          setMainImage(""); // Fallback if no images are available
         }
 
         // Set the first option as the default selected option
         if (data.options && data.options.length > 0) {
           setSelectedOption(data.options[0]);
         }
-
       } catch (error) {
         setError(error.message);
       } finally {
@@ -87,29 +87,35 @@ export default function ProductDetail() {
           </div>
           <div className="product-info-section">
             <h2>{product.name}</h2>
-            <div className="rating">
-              <span>⭐⭐⭐⭐⭐ ({product.rating || 0})</span> {/* Default value for rating */}
-            </div>
-            <h3 className="product-price">{selectedOption?.price || 'N/A'}₫</h3> {/* Display the price of the selected option */}
+            <h3 className="product-price">
+              {selectedOption?.price
+                ? `${selectedOption.price.toLocaleString("vi-VN")} ₫`
+                : "N/A"}
+            </h3>
+            <span className="rating">⭐⭐⭐⭐⭐ ({product.rating || 0})</span>
             <div className="product-options">
               <h4>Chất liệu bọc</h4>
               <div className="material-options">
                 {product.options?.map((option, index) => (
                   <button
                     key={index}
-                    className={`material-button ${selectedOption === option ? 'active' : ''}`}
+                    className={`material-button ${
+                      selectedOption === option ? "active" : ""
+                    }`}
                     onClick={() => handleOptionChange(option)}
                   >
                     {option.material}
                   </button>
                 ))}
               </div>
-              <h4>Size</h4>
-              <p>{product.size || 'N/A'}</p>
+              <div className="size-option">
+                <h4>Size</h4>
+                <button className="size-button">{product.size || "N/A"}</button>
+              </div>
             </div>
-            <h4>Mô tả sản phẩm</h4>
-            <p>{product.description}</p>
+
             <button className="add-to-cart-button">Thêm vào giỏ hàng</button>
+            <div className="add-to-card-class"></div>
             <div className="contact-info">
               <p>📞 0942.68.9393 - 0975.24.9393</p>
               <a href="https://facebook.com" className="contact-link">
@@ -121,7 +127,15 @@ export default function ProductDetail() {
             </div>
           </div>
         </div>
+        <div className="detail">
+          <h4>Mô tả sản phẩm</h4>
+          <p>{product.description}</p>
+          <div className="player">
+            <ReactPlayer url="https://www.youtube.com/watch?v=JObdGgXTHmU&t=3s" />
+          </div>
+        </div>
       </div>
+      <CategoryView />
     </div>
   );
 }
